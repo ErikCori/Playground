@@ -42,7 +42,7 @@ function compararEdadConIgnasi(edad){
 	}
 }
 compararEdadConIgnasi(age);
-//==================MATRICES==============================
+//==================ARRAYS==============================
 //Ejercicio 1
 var names = ['Silvana Darlik', 'Matías Guerrero', 'Hernán', 'Miriam', 'Agustina Oficialdegui', 'Alejandro Belo', 'Alejandro Raffo', 'Amad Saed', 'Cristian Cahe', 'Regina Molares', 'Nahuel Correa', 'Elizabeth Sainz', 'Federico Viola', 'Tomás Shiao', 'Genaro Di Martino', 'Iara Baya', 'Inés Ehulech', 'José Luis González', 'Joseph Flores', 'Leonardo López', 'Lighuen Gerónimo', 'Luz Marina Pereira', 'Marco A. López', 'Mateo Barreiros'];
 
@@ -70,7 +70,7 @@ console.log("Primer elemento: "+mostrarPrimerElemento(names));
 
 console.log("Ultimo elemento: "+mostrarUltimoElemento(names));
 
-//Ejercicio 2:Bucle sobre una matriz
+//Ejercicio 2:Bucle sobre un array
 var ages = [18, 20, 23, 30, 19, 22, 21, 24, 23, 22];
 var cantidad = ages.length;
 
@@ -101,13 +101,11 @@ mostrarEdadesPares(ages);
 //Ejercicio 3: Elemento mas chico
 
 function elNumeroMasBajo(coleccion){
-	var esPrimerElemento = true;
 	var minimo = coleccion[0];
 	var cantidad = coleccion.length;
 	for(var i=1; i<cantidad; i++){
 		if(coleccion[i]<minimo){
 			minimo = coleccion[i];
-			esPrimerElemento = false;
 		}
 	}
 	return minimo;
@@ -117,13 +115,11 @@ console.log("El numero mas bajo es: "+elNumeroMasBajo(ages));
 //Ejercicio 4: Elemento mas grande
 
 function elNumeroMasAlto(coleccion){
-	var esPrimerElemento = true;
 	var maximo = coleccion[0];
 	var cantidad = coleccion.length;
 	for(var i=1; i<cantidad; i++){
 		if(coleccion[i]>maximo){
 			maximo = coleccion[i];
-			esPrimerElemento = false;
 		}
 	}
 	return maximo;
@@ -142,6 +138,7 @@ console.log("Mostrando elemento: "+mostrarElemento(ages,3))
 function mostrarElementosRepetidos(coleccion){
 	
 }
+
 //Ejercicio 7:Mostrar elementos concatenados
 function mostrarElementosConcatenados(coleccion){
 	var fraseFinal = "'"+coleccion[0]+"'";
@@ -156,22 +153,27 @@ mostrarElementosConcatenados(names);
 //===================STRINGS==================================
 //Ejercicio 1: Mostrar cadena en orden inverso
 
-function mostrarCadenaAlRevez(cadena){
-	var auxiliar;
-	var cadInv;
-	var ultimo = (cadena.length);
-	for(var i=cadena.length-1; i>0; i--){
-		auxiliar= cadena[i];
-		cadInv[i] = auxiliar;
+function mostrarCadenaAlRevez(numero){
+	var numeroString = numero.toString();
+	var cadInv =[];
+	var longitud = numeroString.length;
+	var j=0;
+	for(var i=longitud-1; i>=0; i--){
+		cadInv[j] = numeroString[i];
+		j++;
 	}
-	return cadInv;
+	var cadInvNumero= cadInv[0];
+	for(var i=1; i<cadInv.length; i++){
+		cadInvNumero = cadInvNumero+cadInv[i];
+	}
+	return cadInvNumero;
 }
-console.log(mostrarCadenaAlRevez(myName));
+console.log("Cadena inversa: "+mostrarCadenaAlRevez(1234));
+console.log(ordenarArray(myName.split));
 //Ejericio 2: Mostrar cadena ordenada alfabeticamente
 function mostrarCadenaOrdenada(cadena){
 	
 }
-console.log(myName[2]);
 
 //Ejercicio 3: Mostrar la cadena en la cual cada palabra empieza con mayuscula
 function mostrarCadenaToppercase(){
