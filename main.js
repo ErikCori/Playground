@@ -55,7 +55,7 @@ function mostrarUltimoElemento(coleccion){
 	return coleccion[coleccion.length-1];
 }
 function ordenarArray(coleccion){
-	 return coleccion.sort();
+	 return coleccion.sort;
 }
 function mostrarArrayOrdenado(coleccion){
 	
@@ -136,8 +136,17 @@ console.log("Mostrando elemento: "+mostrarElemento(ages,3))
 
 //Ejercicio 6:Mostrar elementos repetidos
 function mostrarElementosRepetidos(coleccion){
-	
+	var repetidos =[];
+	for(var i=0;i<coleccion.length-1;i++){
+		for(var j=i+1;j<coleccion.length;j++){
+			if(coleccion[i]==coleccion[j]){
+				repetidos.push(coleccion[i]);
+			}
+		}
+	}
+	return repetidos
 }
+console.log("Elementos repetidos: "+mostrarElementosRepetidos(ages));
 
 //Ejercicio 7:Mostrar elementos concatenados
 function mostrarElementosConcatenados(coleccion){
@@ -169,12 +178,23 @@ function mostrarCadenaAlRevez(numero){
 	return cadInvNumero;
 }
 console.log("Cadena inversa: "+mostrarCadenaAlRevez(1234));
-console.log(ordenarArray(myName.split));
+
 //Ejericio 2: Mostrar cadena ordenada alfabeticamente
 function mostrarCadenaOrdenada(cadena){
-	
+	var longitud=cadena.length;
+	var cadenaOrdenada=[];
+	for(var iteracion=1; iteracion <longitud; iteracion++){
+		for(var valorIzq=0; valorIzq<(longitud-iteracion); valorIzq++){
+			var valorDer=valorIzq+1;
+			if(cadena[valorIzq]>cadena[valorDer]){
+				cadenaOrdenada[valorIzq]=cadena[valorDer];
+				cadenaOrdenada[valorDer]=cadena[valorIzq];
+			}
+		}
+	}
+	return cadenaOrdenada;
 }
-
+console.log("cadena ordenada: "+mostrarCadenaOrdenada("hola"));
 //Ejercicio 3: Mostrar la cadena en la cual cada palabra empieza con mayuscula
 function mostrarCadenaToppercase(){
 		
