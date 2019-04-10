@@ -137,7 +137,7 @@ console.log("Mostrando elemento: "+mostrarElemento(ages,3))
 //Ejercicio 6:Mostrar elementos repetidos
 function mostrarElementosRepetidos(coleccion){
 	var repetidos =[];
-	for(var i=0;i<coleccion.length-1;i++){
+	for(var i=0;i<coleccion.length;i++){
 		for(var j=i+1;j<coleccion.length;j++){
 			if(coleccion[i]==coleccion[j]){
 				repetidos.push(coleccion[i]);
@@ -183,7 +183,7 @@ console.log("Cadena inversa: "+mostrarCadenaAlRevez(1234));
 function mostrarCadenaOrdenada(cadena){
 	var longitud=cadena.length;
 	var cadenaOrdenada=[];
-	for(var iteracion=1; iteracion <longitud; iteracion++){
+	for(var iteracion=0; iteracion<longitud; iteracion++){
 		for(var valorIzq=0; valorIzq<(longitud-iteracion); valorIzq++){
 			var valorDer=valorIzq+1;
 			if(cadena[valorIzq]>cadena[valorDer]){
@@ -194,11 +194,50 @@ function mostrarCadenaOrdenada(cadena){
 	}
 	return cadenaOrdenada;
 }
+/*function intercambio(valor1, valor2){
+	var auxiliar;
+	auxiliar=valor1;
+	valor1=valor2;
+	valor2=auxiliar;
+	console.log(valor1);
+	console.log(valor2);	
+}	*/	
+
 console.log("cadena ordenada: "+mostrarCadenaOrdenada("hola"));
+
 //Ejercicio 3: Mostrar la cadena en la cual cada palabra empieza con mayuscula
-function mostrarCadenaToppercase(){
+function mostrarCadenaToppercase(cadena){
+	var cadenaMinuscula = cadena.toLowerCase();
+	var cadenaDividida = dividirCadena(cadenaMinuscula);
+	var cadenaFinal =[];
+	for(var i=0; i<cadenaDividida.length; i++){
 		
+		cadenaFinal[i] = cadenaDividida[i][0].toUpperCase()+ cadenaDividida[i].slice(1);
+	}
+	var cadenaConcatenada = cadenaFinal[0];
+	for(var i=1; i<cadenaFinal.length;i++){
+		cadenaConcatenada = cadenaConcatenada+" "+cadenaFinal[i];
+	}
+	return cadenaConcatenada;
 }
+function dividirCadena(cadena){
+	var espacio=" ";
+	var arrayDeCadenas =cadena.split(espacio);
+	return arrayDeCadenas;
+}
+
+console.log("cadena modificada con la primer letra de cada palabra en mayuscula: "+mostrarCadenaToppercase("prince of persia"));
+
 //Ejercicio 4: Mostrar la palabra mas larga de la cadena
+function mostrarLaPalabraMasLarga(cadena){
+	var cadenaDividida = dividirCadena(cadena);
+	var palabraMasLarga = cadenaDividida[0];
+	for(var i=1; i<cadenaDividida.length; i++){
+		if(cadenaDividida[i].length > palabraMasLarga.length){
+			palabraMasLarga = cadenaDividida[i];
+		}
+	}
+	return palabraMasLarga;
+}
 
-
+console.log("La palabra mas larga es: "+mostrarLaPalabraMasLarga("Web Development Tutorial"));
