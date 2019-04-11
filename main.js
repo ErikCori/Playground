@@ -180,7 +180,17 @@ function mostrarCadenaAlRevez(numero){
 console.log("Cadena inversa: "+mostrarCadenaAlRevez(1234));
 
 //Ejericio 2: Mostrar cadena ordenada alfabeticamente
+
 function mostrarCadenaOrdenada(cadena){
+	var cadenaArrayConcatenada ="";
+	cadenaArray = cadena.split("");
+	cadenaArray.sort();
+	for(var i=0; i<cadenaArray.length; i++){
+		cadenaArrayConcatenada += cadenaArray[i];
+	}
+	return cadenaArrayConcatenada;
+}
+/*function mostrarCadenaOrdenada(cadena){
 	var longitud=cadena.length;
 	var cadenaOrdenada=[];
 	for(var iteracion=0; iteracion<longitud; iteracion++){
@@ -194,7 +204,7 @@ function mostrarCadenaOrdenada(cadena){
 	}
 	return cadenaOrdenada;
 }
-/*function intercambio(valor1, valor2){
+function intercambio(valor1, valor2){
 	var auxiliar;
 	auxiliar=valor1;
 	valor1=valor2;
@@ -203,7 +213,7 @@ function mostrarCadenaOrdenada(cadena){
 	console.log(valor2);	
 }	*/	
 
-console.log("cadena ordenada: "+mostrarCadenaOrdenada("hola"));
+console.log("cadena ordenada: "+mostrarCadenaOrdenada("legendario"));
 
 //Ejercicio 3: Mostrar la cadena en la cual cada palabra empieza con mayuscula
 function mostrarCadenaToppercase(cadena){
